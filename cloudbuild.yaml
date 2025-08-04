@@ -20,22 +20,11 @@ steps:
       - push
       - 'gcr.io/${_PROJECT_ID}/${_CINAME}:${_VERSION}'
 
-    # مرحله 4: تنظیم ایمیج جدید در Kubernetes Deployment
-  - name: 'gcr.io/cloud-builders/kubectl'
-    args:
-      - set
-      - image
-      - deployment/cicd-app-1  # ← اسم دقیق Kubernetes deployment رو جایگزین کن
-      - nodejsimage-sha256-1=gcr.io/${_PROJECT_ID}/${_CINAME}:${_VERSION}
-    env:
-      - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'  # یا زون مربوط به کلستر شما
-      - 'CLOUDSDK_CONTAINER_CLUSTER=cicd-cluster'  # ← اسم دقیق کلستر Kubernetes شما
-
 
 # متغیرهای قابل جایگزینی
 substitutions:
   _PROJECT_ID: 'eighth-vehicle-466618-g2'
-  _CINAME: 'myimgweb-sha256-1'
+  _CINAME: 'nodejsimage'
   _VERSION: 'v2.0'
 
 # تنظیمات اختیاری
