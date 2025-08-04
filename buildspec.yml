@@ -1,20 +1,23 @@
-version: 0.2
+version: 0.2  # نسخه syntax فایل buildspec برای AWS CodeBuild
 
-phases: 
-    install:
-        runtime-versions:
-            nodejs: latest
-        commands:
-            - echo "installing something"
-    pre_build:
-        commands: 
-            - echo "we are in the pre build phase"
-    build:
-        commands:
-            - echo "we are in the build block"
-            - echo "we will run some tests"
-            - grep -Fq "Congratulations" index.html
-    post_build:
-        commands:
-            - echo "we are in the post build phase"
-            
+phases:  # تعریف فازهای مختلف ساخت (build)
+
+  install:  # فاز نصب اولیه
+    runtime-versions:
+      nodejs: latest  # استفاده از آخرین نسخه Node.js روی محیط بیلد
+    commands:
+      - echo "installing something"  # پیام تستی - می‌تونه نصب npm package هم باشه
+
+  pre_build:  # فاز قبل از ساخت (مثلاً تنظیم محیط، اعتبارسنجی)
+    commands:
+      - echo "we are in the pre build phase"  # پیام نمایشی برای لاگ
+
+  build:  # فاز اصلی بیلد (ساخت، تست و اجرا)
+    commands:
+      - echo "we are in the build block"        # پیام لاگ
+      - echo "we will run some tests"           # شبیه‌سازی فاز تست
+      - grep -Fq "Congratulations" index.html   # تست ساده: بررسی اینکه عبارت "Congratulations" در index.html وجود داره
+
+  post_build:  # فاز بعد از بیلد (مثلاً دیپلوی یا پاک‌سازی یا ساخت artifact)
+    commands:
+      - echo "we are in the post build phase"  # پیام نهایی در لاگ
