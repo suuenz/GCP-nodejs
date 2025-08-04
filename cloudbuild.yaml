@@ -4,7 +4,7 @@ steps:
     entrypoint: 'git'
     args:
       - clone
-      - https://github.com/suuenz/GCP-nodejs.git  # ← اینجا آدرس repo عمومی خودتو بذار
+      - https://github.com/suuen/GCP-nodejs.git  # ← اینجا آدرس repo عمومی خودتو بذار
 
   # مرحله 2: بیلد ایمیج با Docker
   - name: 'gcr.io/cloud-builders/docker'
