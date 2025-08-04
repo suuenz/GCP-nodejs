@@ -1,5 +1,5 @@
 # استفاده از ایمیج پایه Node.js
-FROM node:18-alpine  # ایمیج سبک و به‌روز از Node.js
+FROM node: 18-alpine  # ایمیج سبک و به‌روز از Node.js
 
 # ساخت دایرکتوری کاری داخل کانتینر
 WORKDIR /app
