@@ -1,0 +1,31 @@
+steps:
+  # مرحله 1: کلون کردن ریپوی GitHub
+  - name: 'gcr.io/cloud-builders/git'
+    entrypoint: 'git'
+    args:
+      - clone
+      - https://github.com/suuenz/GCP-nodejs.git  # ← اینجا آدرس repo عمومی خودتو بذار
+
+  # مرحله 2: بیلد ایمیج با Docker
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - build
+      - '-t'
+      - 'gcr.io/${_PROJECT_ID}/${_CINAME}:${_VERSION}'
+      - '.'
+
+  # مرحله 3: پوش کردن ایمیج در GCR
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - push
+      - 'gcr.io/${_PROJECT_ID}/${_CINAME}:${_VERSION}'
+
+# متغیرهای قابل جایگزینی
+substitutions:
+  _PROJECT_ID: 'eighth-vehicle-466618-g2'
+  _CINAME: 'nodejsimage'
+  _VERSION: 'v1.0'
+
+# تنظیمات اختیاری
+options:
+  logging: CLOUD_LOGGING_ONLY
