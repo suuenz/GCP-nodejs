@@ -1,20 +1,13 @@
-# استفاده از ایمیج پایه Node.js
-FROM node: 18-alpine  # ایمیج سبک و به‌روز از Node.js
+FROM node:18-alpine
 
-# ساخت دایرکتوری کاری داخل کانتینر
 WORKDIR /app
 
-# کپی فایل‌های پیکربندی به کانتینر
 COPY package.json ./
 
-# نصب وابستگی‌های پروژه
 RUN npm install
 
-# کپی بقیه فایل‌ها (مثلاً app.js و index.html) داخل کانتینر
 COPY . .
 
-# تعیین پورت مورد استفاده اپلیکیشن
-EXPOSE 3000  # یا اگر در app.js پورت 8080 استفاده کردی، بنویس: EXPOSE 8080
+EXPOSE 3000
 
-# دستور اجرای اپلیکیشن
 CMD ["npm", "start"]
