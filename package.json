@@ -1,9 +1,10 @@
 {
-  "name": "Elastic-Beanstalk-Sample-App",
-  "version": "0.0.1",
-  "private": true,
-  "dependencies": {},
+  "name": "Elastic-Beanstalk-Sample-App", // نام پروژه (برای شناسایی داخلی یا در محیط‌هایی مثل AWS)
+  "version": "0.0.1",                     // نسخه برنامه
+  "private": true,                        // جلوگیری از انتشار پروژه در npm (امنیت برای پروژه‌های خصوصی)
+  "dependencies": {},                     // وابستگی‌ها (پکیج‌هایی که از npm نصب می‌شن)
+
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js"               // اسکریپت start: اجرای فایل app.js با دستور `npm start`
   }
 }
