@@ -37,7 +37,7 @@ steps:
 substitutions:
   _PROJECT_ID: 'eighth-vehicle-466618-g2'
   _CINAME: 'myimage-deployment'
-  _VERSION: 'v1.0'
+  _VERSION: 'v2.0'
 
 # تنظیمات اختیاری
 options:
